@@ -27,8 +27,18 @@ public class TermsActivity {
         return TermDefinition;
     }
 
+
     public void setTermDefinition(String termDefinition) {
         TermDefinition = termDefinition;
+    }
+
+    @Override
+    public String toString() {
+        return "TermsActivity{" +
+                "TermID=" + TermID +
+                ", Term='" + Term + '\'' +
+                ", TermDefinition='" + TermDefinition + '\'' +
+                '}';
     }
 
 }
