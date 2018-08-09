@@ -1,46 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context="net.michelison.homebitbot.MainActivity">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:text="Blockchain Terms Dictionary"
+        android:textSize="22sp" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/itemsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/send_message_layout"
-        android:divider="@null" />
-    <!--To type and send the message-->
-    <LinearLayout
-        android:id="@+id/send_message_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#ffdddddd"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
 
-        <ImageView
-            android:id="@+id/iv_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/bot" />
-
-        <EditText
-            android:id="@+id/et_message"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/btn_send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_send_24dp"
-            android:text="Send" />
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
