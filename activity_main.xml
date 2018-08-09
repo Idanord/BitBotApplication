@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="net.michelison.homebitbot.MainActivity">
+    tools:context="com.example.will.bitbot.MainActivity">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -19,7 +19,7 @@
         android:id="@+id/itemsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
 </LinearLayout>
