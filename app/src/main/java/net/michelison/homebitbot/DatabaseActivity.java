@@ -57,7 +57,7 @@ public class DatabaseActivity {
             "DROP TABLE IF EXISTS " + DESC_TABLE;
 
 
-    private static class DBHelper extends SQLiteOpenHelper {
+    public static class DBHelper extends SQLiteOpenHelper {
 
         public DBHelper(Context context, String name,
                         SQLiteDatabase.CursorFactory factory, int version){
@@ -104,12 +104,13 @@ public class DatabaseActivity {
     // database and database helper objects
     private SQLiteDatabase db;
     private DBHelper dbHelper;
-
+    private JSONHandler csv;
 
     // constructor
     public DatabaseActivity(Context context){
         dbHelper = new DBHelper(context, DB_NAME, null, DB_VERSION);
     }
+
 
     private void openReadableDB() {
         db = dbHelper.getReadableDatabase();
@@ -124,9 +125,18 @@ public class DatabaseActivity {
             db.close();
     }
 
+
+
     // need to add the public methods for BitBotDB
     // we will be using an ArrayList<Strings>, except we need a hashMap??
     // grab info from cvs file with termsDB getters/setters
+
+    // attempting to pull csv raw file info and inflate into DB
+
+
+
+
+
 
 
     // TODO we need a fileIO.java
