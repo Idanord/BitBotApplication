@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,12 +21,16 @@ import org.alicebot.ab.MagicStrings;
 import org.alicebot.ab.PCAIMLProcessorExtension;
 import org.alicebot.ab.Timer;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity {
 
@@ -63,6 +68,9 @@ public class MainActivity extends Activity {
                 mimicOtherMessage(response);
                 mEditTextMessage.setText("");
                 mListView.setSelection(mAdapter.getCount() - 1);
+
+                readWeatherData();
+
             }
         });
 
@@ -109,6 +117,49 @@ public class MainActivity extends Activity {
         chat = new Chat(bot);
         String[] args = null;
         mainFunction(args);
+
+
+    }
+
+    private List<WeatherSample> weatherSamples = new ArrayList<>();
+    private void readWeatherData() {
+        InputStream is = getResources().openRawResource(R.raw.data);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(is, Charset.forName("UTF-8"))
+        );
+        String line = "";
+        try {
+            //step over header
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                Log.d("MyActivity", "Line: " + line);
+                //split by commas
+                String[] tokens = line.split(",");
+
+                //read the data
+                WeatherSample sample = new WeatherSample();
+                sample.setID(Integer.parseInt(tokens[0]));
+                if (tokens[1].length() > 0){
+                    sample.setQuestion(tokens[1]);
+                }else {
+                    sample.setQuestion(null);
+                }
+                if (tokens.length >= 3 && tokens[2].length() > 0){
+                    sample.setAnswer(tokens[2]);
+                }else {
+                    sample.setAnswer(null);
+                }
+                //sample.setQuestion(tokens[1]);
+                //sample.setAnswer(tokens[2]);
+                weatherSamples.add(sample);
+
+                Log.d("MyActivity", "Just created: " + sample);
+
+            }
+        } catch (IOException e) {
+            Log.wtf("MyActivity", "Error reading data file on line " + line, e);
+            e.printStackTrace();
+        }
     }
 
     private void sendMessage(String message) {
