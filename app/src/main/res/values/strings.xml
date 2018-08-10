@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HomeBitBot</string>
+    <string name="bitBotButton">BitBot</string>
+    <string name="listViewButton">Terms List</string>
 </resources>
