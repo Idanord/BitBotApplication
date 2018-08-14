@@ -1,9 +1,14 @@
 package net.michelison.homebitbot;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class DatabaseActivity {
 
@@ -104,11 +109,65 @@ public class DatabaseActivity {
     // database and database helper objects
     private SQLiteDatabase db;
     private DBHelper dbHelper;
-
+    private CSVHandler csv;
 
     // constructor
     public DatabaseActivity(Context context){
         dbHelper = new DBHelper(context, DB_NAME, null, DB_VERSION);
+    }
+
+
+    public void inflateDB() {
+        openWriteableDB();
+
+        try{
+            FileReader contentFile = new FileReader("/raw/bitbot_content.csv");
+            BufferedReader buffer = new BufferedReader(contentFile);
+            ContentValues contentValues = new ContentValues();
+            String line = "";
+            String contentTableName = "content_table";
+
+            db.beginTransaction();
+            while ((line = buffer.readLine()) != null){
+                String[] str = line.split(",");
+
+                contentValues.put("term_id", str[0]);
+                contentValues.put("term_name", str[1]);
+                contentValues.put("term_desc", str[2]);
+
+                db.insert(contentTableName, null, contentValues);
+            }
+            db.setTransactionSuccessful();
+            db.endTransaction();
+        } catch (IOException e){
+
+        }
+
+        openWriteableDB();
+
+        try{
+            FileReader contentFile = new FileReader("/raw/bitbot_questions.csv");
+            BufferedReader buffer = new BufferedReader(contentFile);
+            ContentValues contentValues = new ContentValues();
+            String line = "";
+            String contentTableName = "description_table";
+
+            db.beginTransaction();
+            while ((line = buffer.readLine()) != null){
+                String[] str = line.split(",");
+
+                contentValues.put("desc_id", str[0]);
+                contentValues.put("description", str[1]);
+                contentValues.put("term_fk", str[2]);
+
+                db.insert(contentTableName, null, contentValues);
+            }
+            db.setTransactionSuccessful();
+            db.endTransaction();
+        } catch (IOException e){
+
+        }
+
     }
 
     private void openReadableDB() {
@@ -124,16 +183,23 @@ public class DatabaseActivity {
             db.close();
     }
 
+
     // need to add the public methods for BitBotDB
     // we will be using an ArrayList<Strings>, except we need a hashMap??
     // grab info from cvs file with termsDB getters/setters
+
+    // attempting to pull csv raw file info and inflate into DB
+
+
+
+
 
 
     // TODO we need a fileIO.java
     // TODO we need a JSON object of the Database
     // TODO We need a SQLDBParser to a hashmap from the RSSItemsActivity File
     // TODO update and Display FROM ItemsActivity.java RSSNewsFeed
-    // TODO JSONHandler getters and setters
+    // TODO CSVHandler getters and setters
 
 
 

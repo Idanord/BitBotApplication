@@ -1,8 +1,11 @@
 package net.michelison.homebitbot;
 
-import android.content.res.AssetManager;
+// import android.content.res.AssetManager;
+import android.content.Context;
+// import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+// import android.content.res.Resources;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,16 +14,24 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONHandler {
+public class CSVHandler {
+
+    //constructor
+    // not sure what to pass in here
+    public CSVHandler(){
+
+    }
 
     private List<TermsActivity> termsActivity = new ArrayList<>();
-    private void readTermData() {
-       // AssetManager assets = getResources().getAssets;
 
-        InputStream is = getResources().openRawResource(R.raw.bitbot_content);
+    private void readTermData(Context context) {
+      //  AssetManager assets = getResources().getAssets;
+
+        InputStream is = context.getResources().openRawResource(R.raw.bitbot_content);
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(is, Charset.forName("UTF-8"))
         );
+
         String line = "";
         try {
             //step over header
@@ -43,6 +54,7 @@ public class JSONHandler {
                 }else {
                     sample.setTermDefinition(null);
                 }
+
                 sample.setTerm(tokens[1]);
                 sample.setTermDefinition(tokens[2]);
                 termsActivity.add(sample);
