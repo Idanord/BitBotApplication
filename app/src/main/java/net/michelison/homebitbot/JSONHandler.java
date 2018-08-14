@@ -2,7 +2,7 @@ package net.michelison.homebitbot;
 
 // import android.content.res.AssetManager;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+// import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 // import android.content.res.Resources;
