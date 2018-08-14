@@ -18,6 +18,8 @@ local.properties
 
 #user configrations
 *.iml
+.idea/caches/build_file_checksums.ser
+.idea/misc.xml
 .idea/libraries/
 .idea/workspace.xml
 .idea/tasks.xml
