@@ -1,10 +1,46 @@
-*.iml
-.gradle
-/local.properties
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-.DS_Store
+#Built app files
 /build
-/captures
+/*/build/
+captures
 .externalNativeBuild
+
+#Crashlytics configuations
+com_crashlytics_export_strings.xml
+
+#gradle-generated files
+.gradle
+
+#local config files (sdk, path, etc)
+local.properties
+
+# Signing files
+.signing/
+
+#user configrations
+*.iml
+.idea/caches/build_file_checksums.ser
+.idea/misc.xml
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/codeStyles/Project.xml
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/workspace.xml
+.idea/vcs.xml
+
+#os-specific files
+.DS_Store
+.DS_Store?
+captures
+.externalNativeBuild
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
