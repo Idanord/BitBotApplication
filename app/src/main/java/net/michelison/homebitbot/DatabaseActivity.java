@@ -109,7 +109,7 @@ public class DatabaseActivity {
     // database and database helper objects
     private SQLiteDatabase db;
     private DBHelper dbHelper;
-    private JSONHandler csv;
+    private CSVHandler csv;
 
     // constructor
     public DatabaseActivity(Context context){
@@ -199,7 +199,7 @@ public class DatabaseActivity {
     // TODO we need a JSON object of the Database
     // TODO We need a SQLDBParser to a hashmap from the RSSItemsActivity File
     // TODO update and Display FROM ItemsActivity.java RSSNewsFeed
-    // TODO JSONHandler getters and setters
+    // TODO CSVHandler getters and setters
 
 
 

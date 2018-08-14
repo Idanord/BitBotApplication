@@ -14,11 +14,11 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONHandler {
+public class CSVHandler {
 
     //constructor
     // not sure what to pass in here
-    public JSONHandler(){
+    public CSVHandler(){
 
     }
 
