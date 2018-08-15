@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button bitBotButton;
     private Button listViewButton;
@@ -17,19 +17,19 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         bitBotButton = findViewById(R.id.bitBotButton);
-        listViewButton = findViewById(R.id.listViewButton2);
+        listViewButton = findViewById(R.id.listViewButton);
     }
 
     //sending to the chat bot
-    //TODO figure out which is the chatbot activity via code -Will
-    //TODO finish linking this to send user to chatbot -Will
     public void sendChat (View view){
-        Intent intent = new Intent(this, );
+        Intent intent = new Intent(this, BotActivity.class);
+        startActivity(intent);
     }
 
     //sending to list view activity
-    //TODO add code to sent to the text list view activity -WILL
     public void sendTextActivity (View view){
-        Intent intent = new Intent(this, );
+        Intent intent = new Intent(this, TermActivity.class);
+        startActivity(intent);
     }
+
 }
