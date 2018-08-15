@@ -1,25 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="net.michelison.homebitbot.MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="73dp">
+
+    <Button
+        android:id="@+id/bitBotButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="79dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginRight="57dp"
+        android:layout_marginStart="67dp"
+        android:text="@string/bitBotButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/listViewButton2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewDiscriptionTextView" />
+
+    <Button
+        android:id="@+id/listViewButton2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="@string/listViewButton"
+        app:layout_constraintBottom_toBottomOf="@+id/bitBotButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bitBotButton"
+        app:layout_constraintTop_toTopOf="@+id/bitBotButton" />
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/bitBotTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="7dp"
-        android:text="Blockchain Terms Dictionary"
-        android:textSize="22sp" />
+        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="60dp"
+        android:text="BitBot:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewTextView"
+        app:layout_constraintEnd_toStartOf="@+id/bitBotDiscriptionTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/itemsList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
+    <TextView
+        android:id="@+id/listViewTextView"
+        android:layout_width="71dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="301dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginStart="31dp"
+        android:text="Terms List:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/listViewDiscriptionTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bitBotTextView" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/bitBotDiscriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="27dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="60dp"
+        android:text="This is an AI that you can ask questions to about Blockchain terminology."
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewDiscriptionTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bitBotTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/listViewDiscriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="165dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="This is a list of terms about Blockchain where you can find the definition without the AI."
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/bitBotButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/listViewTextView"
+        app:layout_constraintTop_toBottomOf="@+id/bitBotDiscriptionTextView" />
+</android.support.constraint.ConstraintLayout>
