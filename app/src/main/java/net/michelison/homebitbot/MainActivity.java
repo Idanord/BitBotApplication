@@ -18,18 +18,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         bitBotButton = findViewById(R.id.bitBotButton);
         listViewButton = findViewById(R.id.listViewButton);
+
+        // dan set the listeners
+        bitBotButton.setOnClickListener(this);
+        listViewButton.setOnClickListener(this);
     }
 
-    //sending to the chat bot
-    public void sendChat (View view){
-        Intent intent = new Intent(this, BotActivity.class);
-        startActivity(intent);
-    }
 
-    //sending to list view activity
-    public void sendTextActivity (View view){
-        Intent intent = new Intent(this, TermActivity.class);
-        startActivity(intent);
-    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bitBotButton:
+                startActivity(new Intent(this, BotActivity.class));
+            case R.id.listViewButton:
+                startActivity(new Intent(this, TermActivity.class));
+        }
 
+    }
 }
