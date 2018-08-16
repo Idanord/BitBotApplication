@@ -31,7 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.bitBotButton:
                 startActivity(new Intent(this, BotActivity.class));
             case R.id.listViewButton:
-                startActivity(new Intent(this, TermActivity.class));
+                startActivity(new Intent(this, DropDownActivity.class));
         }
 
     }
