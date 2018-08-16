@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".BotActivity"></activity>
+        <activity android:name=".DropDownActivity"></activity>
     </application>
 
 </manifest>
